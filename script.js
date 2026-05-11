@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 🌌 2. Particle System (Fixed Dark Mode Colors)
+    // 🌌 2. Particle System (Fixed Dark Mode Colors + Interactive Mouse Physics)
     const canvas = document.getElementById("heroParticles");
     const ctx = canvas.getContext("2d");
     let particles = [];
@@ -11,6 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+    // ตัวแปรเก็บตำแหน่งเมาส์
+    const mouse = {
+        x: null,
+        y: null,
+        radius: 120 // ระยะห่างที่ Particle จะเริ่มหนีเมาส์
+    };
+
+    window.addEventListener('mousemove', function(event) {
+        // อัปเดตตำแหน่งเมาส์เมื่ออยู่บน Header
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+
+    // รีเซ็ตเมาส์เมื่อเลื่อนออกไปข้างนอก
+    window.addEventListener('mouseout', function() {
+        mouse.x = undefined;
+        mouse.y = undefined;
+    });
 
     class Particle {
         constructor() {
@@ -23,18 +42,39 @@ document.addEventListener("DOMContentLoaded", () => {
             this.speedX = (Math.random() - 0.5) * 0.5;
             this.speedY = (Math.random() - 0.5) * 0.5;
             this.opacity = Math.random() * 0.5 + 0.1;
+            this.baseX = this.x;
+            this.baseY = this.y;
         }
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
-            
+
+            // 🌟 เพิ่ม Logic การหนีเมาส์
+            if (mouse.x != null && mouse.y != null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouse.radius) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    
+                    // ความแรงในการผลัก (ยิ่งใกล้เมาส์ยิ่งผลักแรง)
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    
+                    this.x -= forceDirectionX * force * 4;
+                    this.y -= forceDirectionY * force * 4;
+                }
+            }
+
+            // Wrap ให้วนกลับมาถ้าหลุดกรอบ
             if (this.x < 0) this.x = canvas.width;
             if (this.x > canvas.width) this.x = 0;
             if (this.y < 0) this.y = canvas.height;
             if (this.y > canvas.height) this.y = 0;
         }
         draw() {
-            // ใช้สีธีมมืดถาวร (Indigo)
+            // ใช้สี Indigo สไตล์ Cyberpunk
             ctx.fillStyle = `rgba(129, 140, 248, ${this.opacity})`;
             
             ctx.beginPath();
@@ -45,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initParticles() {
         particles = [];
-        const particleCount = window.innerWidth < 768 ? 30 : 60;
+        const particleCount = window.innerWidth < 768 ? 40 : 80; // เพิ่มจำนวน Particle ขึ้นนิดหน่อยเพื่อให้เอฟเฟกต์หนีเมาส์ดูชัดขึ้น
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
