@@ -420,6 +420,19 @@
   
   <button id="backToTop">⬆️</button>
 
+  <!-- นำเข้า VanillaTilt สำหรับ 3D Card Effect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script>
+    // เรียกใช้งาน Vanilla Tilt เฉพาะบนอุปกรณ์ที่ไม่ใช่จอสัมผัส เพื่อประสิทธิภาพ
+    if (window.matchMedia("(pointer: fine)").matches) {
+      VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+        max: 8,           // องศาการเอียง
+        speed: 400,       // ความเร็ว
+        glare: true,      // มีแสงสะท้อน
+        "max-glare": 0.15,// ความสว่างแสงสะท้อน
+      });
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
