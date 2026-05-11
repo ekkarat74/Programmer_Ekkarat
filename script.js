@@ -1,116 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 🌌 2. Particle System (Fixed Dark Mode Colors + Interactive Mouse Physics)
-    const canvas = document.getElementById("heroParticles");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = document.getElementById("home").offsetHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    // ตัวแปรเก็บตำแหน่งเมาส์
-    const mouse = {
-        x: null,
-        y: null,
-        radius: 120 // ระยะห่างที่ Particle จะเริ่มหนีเมาส์
-    };
-
-    window.addEventListener('mousemove', function(event) {
-        // อัปเดตตำแหน่งเมาส์เมื่ออยู่บน Header
-        mouse.x = event.x;
-        mouse.y = event.y;
-    });
-
-    // รีเซ็ตเมาส์เมื่อเลื่อนออกไปข้างนอก
-    window.addEventListener('mouseout', function() {
-        mouse.x = undefined;
-        mouse.y = undefined;
-    });
-
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.opacity = Math.random() * 0.5 + 0.1;
-            this.baseX = this.x;
-            this.baseY = this.y;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            // 🌟 เพิ่ม Logic การหนีเมาส์
-            if (mouse.x != null && mouse.y != null) {
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < mouse.radius) {
-                    const forceDirectionX = dx / distance;
-                    const forceDirectionY = dy / distance;
-                    
-                    // ความแรงในการผลัก (ยิ่งใกล้เมาส์ยิ่งผลักแรง)
-                    const force = (mouse.radius - distance) / mouse.radius;
-                    
-                    this.x -= forceDirectionX * force * 4;
-                    this.y -= forceDirectionY * force * 4;
-                }
-            }
-
-            // Wrap ให้วนกลับมาถ้าหลุดกรอบ
-            if (this.x < 0) this.x = canvas.width;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.y < 0) this.y = canvas.height;
-            if (this.y > canvas.height) this.y = 0;
-        }
-        draw() {
-            // ใช้สี Indigo สไตล์ Cyberpunk
-            ctx.fillStyle = `rgba(129, 140, 248, ${this.opacity})`;
-            
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function initParticles() {
-        particles = [];
-        const particleCount = window.innerWidth < 768 ? 40 : 80; // เพิ่มจำนวน Particle ขึ้นนิดหน่อยเพื่อให้เอฟเฟกต์หนีเมาส์ดูชัดขึ้น
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-
-    // ⌨️ 3. Typing Effect
-    const roles = ["Game Programmer", "Unity Developer", "Java Enthusiast"];
+    // 1. Terminal Typing Effect
+    const roles = ["Game Developer", "Unity Programmer", "Full-Stack Web", "Tech Enthusiast"];
     const typingText = document.querySelector(".typing-text");
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
 
     function type() {
+        if (!typingText) return;
+        
         const currentRole = roles[roleIndex];
         
         if (isDeleting) {
@@ -121,29 +20,56 @@ document.addEventListener("DOMContentLoaded", () => {
             charIndex++;
         }
 
-        let speed = isDeleting ? 50 : 100;
+        let speed = isDeleting ? 30 : 80;
 
         if (!isDeleting && charIndex === currentRole.length) {
-            speed = 2000;
+            speed = 2500; // Pause at end of word
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            speed = 500;
+            speed = 500; // Pause before next word
         }
 
         setTimeout(type, speed);
     }
     type();
 
-    // 📜 4. Scroll Spy & Animations
-    const sections = document.querySelectorAll("section, header");
+    // 2. Project Filtering System
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'flex';
+                    // Trigger reflow for animation
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => { card.style.display = 'none'; }, 300); // Match CSS transition
+                }
+            });
+        });
+    });
+
+    // 3. Scroll Spy & Progress Bar
+    const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("#navbar a");
     const faders = document.querySelectorAll(".fade-in");
-    const backToTop = document.getElementById("backToTop");
     const progressBar = document.getElementById("progressBar");
 
-    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    // Fade-in on scroll
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
@@ -154,19 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     faders.forEach(fader => appearOnScroll.observe(fader));
 
+    // Progress bar & active link update
     window.addEventListener("scroll", () => {
         let scrollTop = window.scrollY;
         let docHeight = document.body.offsetHeight - window.innerHeight;
         let scrollPercent = (scrollTop / docHeight) * 100;
         progressBar.style.width = scrollPercent + "%";
 
-        if (scrollTop > 500) backToTop.style.display = "block";
-        else backToTop.style.display = "none";
-
         let current = "";
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 200) {
+            if (scrollY >= sectionTop - 150) {
                 current = section.getAttribute("id");
             }
         });
@@ -179,8 +103,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    // 4. Konami Code Easter Egg (Optional Fun Feature!)
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                activateHackerMode();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
     });
 
+    function activateHackerMode() {
+        document.documentElement.style.setProperty('--bg-color', '#001100');
+        document.documentElement.style.setProperty('--accent', '#0f0');
+        document.documentElement.style.setProperty('--text-main', '#0f0');
+        document.documentElement.style.setProperty('--surface-color', '#002200');
+        document.body.style.fontFamily = "'JetBrains Mono', monospace";
+        alert("👨‍💻 Developer Mode Activated!");
+    }
 });
