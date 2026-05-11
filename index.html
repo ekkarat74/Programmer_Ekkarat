@@ -3,436 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ekkarat Thaitisa | Portfolio</title>
+  <title>Ekkarat Thaitisa | Software Developer</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Top Progress Bar -->
   <div id="progressBar"></div>
 
+  <!-- Minimal Header Nav -->
   <nav id="navbar">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Exp</a>
-    <a href="#projects">Projects</a>
+    <div class="nav-brand">EK.DEV</div>
+    <div class="nav-links">
+      <a href="#about" class="active">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Work</a>
+    </div>
   </nav>
 
-  <header id="home">
-    <canvas id="heroParticles"></canvas>
+  <main class="container">
     
-    <div class="header-content fade-in show">
-      <div class="profile-wrapper">
-        <img src="https://github.com/ekkarat74/UnityDeveloper/blob/main/1706705920152.jpg?raw=true" alt="Ekkarat Thaitisa" class="profile-img">
-        <div class="status-badge">🟢 Available for Work</div>
-      </div>
-      
-      <h1>Hi, I'm <span class="gradient-text">Ekkarat Thaitisa</span></h1>
-      
-      <div class="typing-container">
-        <span class="typing-text"></span><span class="cursor">|</span>
-      </div>
-      
-      <p class="subtitle">💻 Game Programmer | 🎮 Unity Developer | ☕ Full-Stack Enthusiast</p>
-      
-      <div class="cta-buttons">
-        <a href="CV.pdf" download class="btn-primary">📄 Download CV</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-    <section id="about">
-      <div class="grid-2-col">
-        <div class="glass-card fade-in">
-          <div class="card-header"><h2>🔹 About Me</h2></div>
-          <p>
-            Hi 👋 My name is <strong>Ekkarat Thaitisa</strong>. <br>
-            I am a passionate <b>Software Developer</b> with expertise in both <b>Game Development</b> and <b>Full-Stack Web Development</b>. 
-            I specialize in <span class="highlight">Game Mechanics</span>, <span class="highlight">System Architecture</span>, and creating impactful data-driven web applications.
-          </p>
-          <div class="tech-tags">
-            <span>#Unity3D</span>
-            <span>#CSharp</span>
-            <span>#ReactJS</span>
-            <span>#NodeJS</span>
-            <span>#GameDev</span>
-          </div>
+    <!-- HERO SECTION -->
+    <section id="hero" class="bento-box hero-bento fade-in">
+      <div class="hero-content">
+        <div class="status-indicator">
+          <span class="dot-pulse"></span> Available for Work
         </div>
-
-        <div class="glass-card fade-in">
-          <div class="card-header"><h2>📬 Contact Info</h2></div>
-          <ul class="contact-list">
-             <li>
-               <span class="icon">📱</span>
-               <div class="info">
-                 <span class="label">Phone</span>
-                 <span class="value">+66 64-797-5947</span>
-               </div>
-             </li>
-             <li>
-               <span class="icon">📧</span>
-               <div class="info">
-                 <span class="label">Email</span>
-                 <a href="mailto:ekkarat.thaitisa@gmail.com" class="value">ekkarat.thaitisa@gmail.com</a>
-               </div>
-             </li>
-             <li>
-               <span class="icon">🌐</span>
-               <div class="info">
-                 <span class="label">LinkedIn</span>
-                 <a href="https://linkedin.com/in/ekkarat-thaitisa-unitydevelopment" target="_blank" class="link-btn">View Profile</a>
-               </div>
-             </li>
-          </ul>
+        <h1 class="hero-title">Ekkarat Thaitisa</h1>
+        <div class="code-typing">
+          <span class="token keyword">const</span> <span class="token variable">role</span> <span class="token operator">=</span> <span class="token string">"<span class="typing-text"></span>"</span><span class="cursor">|</span>
+        </div>
+        <p class="hero-desc">
+          Passionate Software Developer bridging the gap between immersive <b>Game Mechanics</b> and robust <b>Full-Stack Architecture</b>. Building scalable systems and interactive experiences.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="CV.pdf" download class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="profile-frame">
+          <img src="https://github.com/ekkarat74/UnityDeveloper/blob/main/1706705920152.jpg?raw=true" alt="Ekkarat Thaitisa">
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <h2 class="section-title">🛠️ Tech Stack & Skills</h2>
-      <div class="skill-grid">
+    <!-- BENTO GRID SECTION (About & Skills & Contact) -->
+    <section id="about" class="bento-grid">
+      
+      <!-- Contact Bento -->
+      <div class="bento-box contact-bento fade-in">
+        <h3 class="bento-title">Connect</h3>
+        <ul class="contact-list">
+          <li><span class="icon">📍</span> Bangkok, Thailand</li>
+          <li><span class="icon">📧</span> <a href="mailto:ekkarat.thaitisa@gmail.com">ekkarat.thaitisa@gmail.com</a></li>
+          <li><span class="icon">📱</span> +66 64-797-5947</li>
+          <li><span class="icon">🔗</span> <a href="https://linkedin.com/in/ekkarat-thaitisa-unitydevelopment" target="_blank">LinkedIn Profile ↗</a></li>
+          <li><span class="icon">🐙</span> <a href="https://github.com/ekkarat74" target="_blank">GitHub ↗</a></li>
+        </ul>
+      </div>
+
+      <!-- Skills Bento -->
+      <div class="bento-box skills-bento fade-in">
+        <h3 class="bento-title">Tech Stack</h3>
+        <div class="skill-tags">
+          <!-- Game Dev -->
+          <span class="tag">C#</span>
+          <span class="tag">Unity3D</span>
+          <!-- Web Dev -->
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <!-- Backend & DB -->
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Firebase</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+      </div>
+      
+      <div class="list-container">
         
-        <div class="skill-card glass-card fade-in">
-          <h3>Languages</h3>
-          <div class="skill-icons">
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"> C#</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"> JavaScript</div>
+        <!-- Exp Item 1 -->
+        <div class="list-item">
+          <div class="item-meta">
+            <span class="date">Dec 2025 - Present</span>
+          </div>
+          <div class="item-body">
+            <h4 class="role">Full-Stack Developer</h4>
+            <h5 class="company">Din Daeng Veterinary Clinic</h5>
+            <p class="desc">
+              Engineered a comprehensive <strong>Veterinary Dashboard</strong> system tracking mobile units and records. Developed a real-time Rabies Outbreak monitoring system using <strong>Socket.IO</strong> and <strong>Leaflet Maps</strong>. Designed robust RESTful APIs with Node.js/MongoDB and built analytics visualization with React.js.
+            </p>
           </div>
         </div>
 
-        <div class="skill-card glass-card fade-in">
-          <h3>Engine & Frameworks</h3>
-          <div class="skill-icons">
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"> Unity</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"> Spring Boot</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"> React</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"> Node.js</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"> HTML5</div>
+        <!-- Exp Item 2 -->
+        <div class="list-item">
+          <div class="item-meta">
+            <span class="date">Sep - Nov 2025</span>
+          </div>
+          <div class="item-body">
+            <h4 class="role">Programmer</h4>
+            <h5 class="company">ExzureXR Co., Ltd.</h5>
+            <p class="desc">
+              Designed and developed Slot Machine game systems. Integrated reward logic, randomization systems, and balance mechanics while working on UX/UI and result animations.
+            </p>
           </div>
         </div>
 
-        <div class="skill-card glass-card fade-in">
-          <h3>Tools & Database</h3>
-          <div class="skill-icons">
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"> MySQL</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"> MongoDB</div>
-            <div class="s-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"> Firebase</div>
+        <!-- Exp Item 3 -->
+        <div class="list-item">
+          <div class="item-meta">
+            <span class="date">May - Aug 2025</span>
+          </div>
+          <div class="item-body">
+            <h4 class="role">Unity Developer (Intern)</h4>
+            <h5 class="company">WolvEden Production</h5>
+            <p class="desc">
+              Developed AI Controllers for Bosses and MiniBosses. Implemented Monster AI using Finite State Machines (FSM) and integrated custom Input System Controllers.
+            </p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <section id="experience">
-      <h2 class="section-title">🚀 My Journey</h2>
-      <div class="grid-2-col">
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="fade-in">
+      <div class="section-header project-header">
+        <h2 class="section-title">Selected Works</h2>
         
-        <div class="timeline-box glass-card fade-in">
-          <h3>💼 Experience</h3>
-          <div class="timeline">
-            
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">Dec 15, 2025 - Present</span>
-                <h4>Full-Stack Developer</h4>
-                <p class="company">Din Daeng Veterinary Clinic (คลินิกสัตวแพทย์ดินแดง)</p>
-                  <ul>
-                    <li>Engineered a comprehensive <strong>Veterinary Dashboard</strong> system to track mobile veterinary units, vaccinations, and sterilization records.</li>
-                    <li>Developed a real-time Rabies Outbreak monitoring and alert system using <strong>Socket.IO</strong> and interactive <strong>Leaflet Maps</strong>.</li>
-                    <li>Designed robust RESTful APIs with <strong>Node.js, Express, and MongoDB</strong> to handle large-scale public health data and bulk CSV imports.</li>
-                    <li>Implemented Role-Based Access Control (RBAC) and complex statistical analytics visualization using <strong>React.js</strong> and <strong>Tailwind CSS</strong>.</li>
-                  </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">Sep - Nov 2025</span>
-                <h4>Programmer</h4>
-                <p class="company">ExzureXR Co., Ltd.</p>
-                  <ul>
-                    <li>Designed and developed Slot Machine game systems.</li>
-                    <li>Worked on UX/UI for slot machine interface and result animations.</li>
-                    <li>Integrated reward logic, randomization system, and balance mechanics.</li>
-                    <li>Collaborated with design and art teams to ensure smooth gameplay flow.</li>
-                  </ul>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">May - Aug 2025</span>
-                <h4>Unity Developer (Intern)</h4>
-                <p class="company">WolvEden Production</p>
-                  <ul>
-                    <li>Developed AI Controller for Boss and MiniBoss</li>
-                    <li>Implemented Monster AI Controller with FSM</li>
-                    <li>Designed and integrated Input System Controller for Main Character</li>
-                  </ul>
-              </div>
-            </div>
-             <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">Aug - Dec 2024</span>
-                <h4>Game Programmer / Level Design</h4>
-                <p class="company">Senior Project</p>
-                  <ul>
-                    <li>Developed an Android game using Unity and C#</li>
-                    <li>Designed child-friendly UI/UX for players aged 4–9</li>
-                    <li>Conducted user testing with children and improved gameplay based on feedback</li>
-                  </ul>
-              </div>
-            </div>
-          </div>
+        <!-- Filter Buttons -->
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web App</button>
+          <button class="filter-btn" data-filter="game">Game Dev</button>
+          <button class="filter-btn" data-filter="desktop">Desktop</button>
         </div>
-
-        <div class="timeline-box glass-card fade-in">
-          <h3>🎓 Education</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">2022 - 2024</span>
-                <h4>Bachelor’s Degree in Information Technology and Innovation</h4>
-                <p class="desc"> Game and Interactive Media</p>
-                <p class="company">Bangkok University</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">2020 - 2021</span>
-                <h4><b>Degree : </b>Advanced Vocational Certificate in Digital Business Technology</h4>
-                <p class="company">Tangtrongchit Business Administration Technological College</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="dot"></div>
-              <div class="t-content">
-                <span class="date">2017 - 2019</span>
-                <h4><b>Degree : </b>Vocational Certificate in Business Computer</h4>
-                <p class="company">Tangtrongchit Commercial Technological College</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-    <section id="projects">
-      <h2 class="section-title">🎮 Featured Projects</h2>
-      <div class="projects-grid">
+      <div class="project-grid">
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="https://github.com/ekkarat74/VeterinaryDashboard/blob/main/images.jpg?raw=true" onerror="this.src='https://via.placeholder.com/400x250/1e293b/818cf8?text=Veterinary+Dashboard'" alt="Veterinary Dashboard">
-            <div class="overlay"><a href="https://github.com/ekkarat74/VeterinaryDashboard" target="_blank">View Code 🏥</a></div>
+        <!-- Project 1 -->
+        <div class="project-card bento-box" data-category="web">
+          <div class="p-img">
+            <img src="https://github.com/ekkarat74/VeterinaryDashboard/blob/main/images.jpg?raw=true" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=Veterinary+Dashboard'" alt="Dashboard">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Full Stack | Enterprise Web</span>
-            <h3>Veterinary Dashboard</h3>
-            <p>Comprehensive system for tracking veterinary dispatch and rabies outbreaks with real-time mapping and analytics.</p>
-            <p class="p-skills">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">Socket.IO</span>
-              <span class="skill-tag">Leaflet Map</span>
-              <span class="skill-tag">Tailwind CSS</span>
-            </p>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Veterinary Dashboard</h3>
+              <a href="https://github.com/ekkarat74/VeterinaryDashboard" target="_blank" class="github-link">↗</a>
+            </div>
+            <p>Real-time tracking for veterinary dispatch and rabies outbreaks mapping.</p>
+            <div class="p-tech">React, Node.js, MongoDB, Socket.IO</div>
           </div>
         </div>
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="StarShip.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/6c5ce7?text=Star+Ship'" alt="Star Ship">
-            <div class="overlay"><a href="https://github.com/Ekkarat02-lab/Star-Ship.git" target="_blank">View Code 🚀</a></div>
+        <!-- Project 2 -->
+        <div class="project-card bento-box" data-category="web">
+          <div class="p-img">
+            <img src="Screenshot 2025-12-06 142339.png" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=RealTime+Chat'" alt="Chat App">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Space Shooter</span>
-            <h3>Star Ship 3D</h3>
-            <p>A 3D space shooter utilizing physics engines.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Unity</span>
-              <span class="skill-tag">C#</span>
-              <span class="skill-tag">Physics Engine</span>
-            </p>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Real-Time Chat & Call</h3>
+              <a href="https://github.com/ekkarat74/Message_Chat.git" target="_blank" class="github-link">↗</a>
+            </div>
+            <p>Full-stack MERN application with Socket.IO messaging and WebRTC group video calls.</p>
+            <div class="p-tech">MERN Stack, WebRTC, Socket.IO</div>
           </div>
         </div>
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="CronoSquare.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/00d2d3?text=CronoSquare'" alt="CronoSquare">
-            <div class="overlay"><a href="https://github.com/ekkarat74/CronoSquare.git" target="_blank">View Code 🎯</a></div>
+        <!-- Project 3 -->
+        <div class="project-card bento-box" data-category="game">
+          <div class="p-img">
+            <img src="Grave planet.png" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=Grave+Planet'" alt="Grave Planet">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Arcade</span>
-            <h3>CronoSquare</h3>
-            <p>Eliminate enemies with restricted life points.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Unity</span>
-              <span class="skill-tag">C#</span>
-              <span class="skill-tag">Gameplay Programming</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="Gravity Girl Surge.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/ff9ff3?text=Gravity+Girl'" alt="Gravity Girl">
-            <div class="overlay"><a href="https://github.com/Ekkarat02-lab/Rapid_Game_Puzzle_PlatFormer.git" target="_blank">View Code 🧩</a></div>
-          </div>
-          <div class="p-content">
-            <span class="p-tag">Puzzle Platformer</span>
-            <h3>Gravity Girl Surge</h3>
-            <p>A puzzle-platformer game focused on gravity mechanics.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Unity</span>
-              <span class="skill-tag">C#</span>
-              <span class="skill-tag">2D Physics</span>
-              <span class="skill-tag">Level Design</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="Grave planet.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/6c5ce7?text=Grave+Planet'" alt="Grave Planet">
-            <div class="overlay"><a href="https://github.com/Ekkarat02-lab/Rapid_Game_Action_Adventure.git" target="_blank">View Code ⚔️</a></div>
-          </div>
-          <div class="p-content">
-            <span class="p-tag">Action Adventure</span>
-            <h3>Grave Planet</h3>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Grave Planet</h3>
+              <a href="https://github.com/Ekkarat02-lab/Rapid_Game_Action_Adventure.git" target="_blank" class="github-link">↗</a>
+            </div>
             <p>Action-adventure game themed around a lost civilization.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Unity</span>
-              <span class="skill-tag">C#</span>
-              <span class="skill-tag">AI/FSM</span>
-              <span class="skill-tag">Animation</span>
-            </p>
+            <div class="p-tech">Unity, C#, AI/FSM</div>
           </div>
         </div>
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="Phymon and friend.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/00d2d3?text=Phymon'" alt="Phymon">
-            <div class="overlay"><a href="https://github.com/Ekkarat02-lab/Phymon-and-friend.git" target="_blank">View Code 🧠</a></div>
+        <!-- Project 4 -->
+        <div class="project-card bento-box" data-category="game">
+          <div class="p-img">
+            <img src="StarShip.png" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=Star+Ship'" alt="Star Ship">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Edutainment</span>
-            <h3>Phymon & Friend</h3>
-            <p>Educational game helping children reduce fear of doctors.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Unity</span>
-              <span class="skill-tag">C#</span>
-              <span class="skill-tag">UI/UX Design</span>
-              <span class="skill-tag">User Testing</span>
-            </p>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Star Ship 3D</h3>
+              <a href="https://github.com/Ekkarat02-lab/Star-Ship.git" target="_blank" class="github-link">↗</a>
+            </div>
+            <p>A 3D space shooter utilizing physics engines.</p>
+            <div class="p-tech">Unity, C#, Physics Engine</div>
           </div>
         </div>
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="Screenshot 2025-12-06 180327.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/ff9ff3?text=Student+Management'" alt="Student Management">
-            <div class="overlay"><a href="https://github.com/ekkarat74/Student-Management.git" target="_blank">View Code ☕</a></div>
+        <!-- Project 5 -->
+        <div class="project-card bento-box" data-category="game">
+          <div class="p-img">
+            <img src="Gravity Girl Surge.png" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=Gravity+Girl'" alt="Gravity Girl">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Java Swing</span>
-            <h3>Student Management</h3>
-            <p>Desktop App with SQLite and secure login system.</p>
-            <p class="p-skills">
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">Java Swing</span>
-              <span class="skill-tag">SQLite</span>
-              <span class="skill-tag">Secure Login</span>
-            </p>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Gravity Girl Surge</h3>
+              <a href="https://github.com/Ekkarat02-lab/Rapid_Game_Puzzle_PlatFormer.git" target="_blank" class="github-link">↗</a>
+            </div>
+            <p>A puzzle-platformer game focused on gravity mechanics.</p>
+            <div class="p-tech">Unity, 2D Physics</div>
           </div>
         </div>
 
-        <div class="project-card glass-card fade-in">
-          <div class="img-holder">
-            <img src="Screenshot 2025-12-06 142339.png" onerror="this.src='https://via.placeholder.com/400x250/1e293b/f1c40f?text=RealTime+Chat'" alt="Real-Time Chat App">
-            <div class="overlay"><a href="https://github.com/ekkarat74/Message_Chat.git" target="_blank">View Code 💬</a></div>
+        <!-- Project 6 -->
+        <div class="project-card bento-box" data-category="desktop">
+          <div class="p-img">
+            <img src="Screenshot 2025-12-06 180327.png" onerror="this.src='https://via.placeholder.com/600x400/111/00ffcc?text=Student+Management'" alt="Student Mgmt">
           </div>
-          <div class="p-content">
-            <span class="p-tag">Full Stack | Real-Time</span>
-            <h3>Real-Time Chat & Group Call</h3>
-            <p>Full-stack chat application built with **MERN**, **Socket.IO** (Real-Time Messaging), and **WebRTC** (Group Video Call).</p>
-            <p class="p-skills">
-              <span class="skill-tag">MERN Stack</span>
-              <span class="skill-tag">Socket.IO</span>
-              <span class="skill-tag">WebRTC</span>
-              <span class="skill-tag">JavaScript</span>
-            </p>
+          <div class="p-info">
+            <div class="p-head">
+              <h3>Student Management</h3>
+              <a href="https://github.com/ekkarat74/Student-Management.git" target="_blank" class="github-link">↗</a>
+            </div>
+            <p>Desktop application with SQLite integration and secure login systems.</p>
+            <div class="p-tech">Java Swing, SQLite</div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <section id="certificate">
-      <h2 class="section-title">📜 Certificates</h2>
-      <div class="certificates-grid">
-        <div class="cert-item glass-card fade-in">
-          <div class="cert-img-box">
-             <img src="Certificates 1.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Certificate+1'" alt="Certificate 1">
-          </div>
-          <div class="cert-info">
-            <h4>IT Innovation Committee 2023</h4>
-            <a href="Certificates 1.jpg" target="_blank" class="cert-link">View Full</a>
-          </div>
-        </div>
-        <div class="cert-item glass-card fade-in">
-          <div class="cert-img-box">
-             <img src="Certificates 2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Certificate+2'" alt="Certificate 2">
-          </div>
-          <div class="cert-info">
-            <h4>YTSA#19</h4>
-            <a href="Certificates 2.jpg" target="_blank" class="cert-link">View Full</a>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 Ekkarat T</p>
-    <div class="social-footer">
-        <a href="https://github.com/ekkarat74" target="_blank">GitHub</a> • 
-        <a href="https://linkedin.com/in/ekkarat-thaitisa-unitydevelopment" target="_blank">LinkedIn</a>
+    <div class="container footer-content">
+      <div class="f-logo">EK.DEV</div>
+      <p>© 2026 Ekkarat Thaitisa. Built with passion.</p>
     </div>
   </footer>
-  
-  <button id="backToTop">⬆️</button>
 
-  <!-- นำเข้า VanillaTilt สำหรับ 3D Card Effect -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script>
-    // เรียกใช้งาน Vanilla Tilt เฉพาะบนอุปกรณ์ที่ไม่ใช่จอสัมผัส เพื่อประสิทธิภาพ
-    if (window.matchMedia("(pointer: fine)").matches) {
-      VanillaTilt.init(document.querySelectorAll(".glass-card"), {
-        max: 8,           // องศาการเอียง
-        speed: 400,       // ความเร็ว
-        glare: true,      // มีแสงสะท้อน
-        "max-glare": 0.15,// ความสว่างแสงสะท้อน
-      });
-    }
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
